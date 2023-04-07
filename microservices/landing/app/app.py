@@ -72,7 +72,7 @@ def index():
             flash(f'Please enter the numbers properly...')
         
         elif(number_2=="0"):
-            flash(f'Denomibator cannot be zero...')
+            flash(f'Denominator cannot be zero...')
 
         else:
             result = divide(int(number_1), int(number_2))
