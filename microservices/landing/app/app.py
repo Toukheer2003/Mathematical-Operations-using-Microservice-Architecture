@@ -8,10 +8,16 @@ app.secret_key = 'thisisjustarandomstring'
 
 
 def add(n1, n2):
-    return n1+n2
+    url = "http://addition-service:5052/"+str(n1)+"/"+str(n2)
+    response = requests.get(url)
+    return response.json()['Output']
+    # return n1+n2
 
 def minus(n1, n2):
-    return n1-n2
+    url = "http://subtraction-service:5053/"+str(n1)+"/"+str(n2)
+    response = requests.get(url)
+    return response.json()['Output']
+    # return n1-n2
 
 def multiply(n1, n2):
     return n1*n2
