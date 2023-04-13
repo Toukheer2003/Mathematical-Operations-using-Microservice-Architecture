@@ -5,7 +5,7 @@ class Addition(Resource):
     def get(self,number_1,number_2):
         return {'Output':(int(number_1)+int(number_2))}
     
-app=Flask(__name__)
+app=Flask(__name__) 
 api=Api(app)
 api.add_resource(Addition, '/<number_1>/<number_2>')
 
