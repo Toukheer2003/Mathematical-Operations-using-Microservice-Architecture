@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restful import Resource,Api
 
-class Addition(Resource):
+class Subtraction(Resource):
     def get(self,number_1,number_2):
         return {'Output':(int(number_1)-int(number_2))}
     
