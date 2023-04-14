@@ -30,6 +30,18 @@ def divide(n1, n2):
     response = requests.get(url)
     return response.json()['Output']
     # return n1/n2
+    
+def greaterthan(n1, n2):
+    url = "http://greaterthan-service:5056/"+str(n1)+"/"+str(n2)
+    response = requests.get(url)
+    return response.json()['Output']
+    # return n1>n2
+    
+def lesserthan(n1, n2):
+    url = "http://lesserthan-service:5057/"+str(n1)+"/"+str(n2)
+    response = requests.get(url)
+    return response.json()['Output']
+    # return n1<n2
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
@@ -88,6 +100,30 @@ def index():
 
         else:
             result = divide(int(number_1), int(number_2))
+            flash(f'The result of operation {operation} on {number_1} and {number_2} is {result}')
+       
+    
+     elif operation == 'greaterthan':
+        if((number_1==None or number_2==None)):
+            flash(f'Please enter the numbers properly...')
+            
+        elif(number_1.isdigit()!=True or number_2.isdigit()!=True):
+            flash(f'Please enter the numbers properly...')
+        
+        else:
+            result = greaterthan(int(number_1), int(number_2))
+            flash(f'The result of operation {operation} on {number_1} and {number_2} is {result}')
+        
+        
+     elif operation == 'lesserthan':
+        if((number_1==None or number_2==None)):
+            flash(f'Please enter the numbers properly...')
+            
+        elif(number_1.isdigit()!=True or number_2.isdigit()!=True):
+            flash(f'Please enter the numbers properly...')
+        
+        else:
+            result = lesserthan(int(number_1), int(number_2))
             flash(f'The result of operation {operation} on {number_1} and {number_2} is {result}')
 
     return render_template('index.html')
