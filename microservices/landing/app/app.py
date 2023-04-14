@@ -20,10 +20,16 @@ def minus(n1, n2):
     # return n1-n2
 
 def multiply(n1, n2):
-    return n1*n2
+    url = "http://multiplication-service:5054/"+str(n1)+"/"+str(n2)
+    response = requests.get(url)
+    return response.json()['Output']
+    # return n1*n2
 
 def divide(n1, n2):
-    return n1/n2
+    url = "http://division-service:5055/"+str(n1)+"/"+str(n2)
+    response = requests.get(url)
+    return response.json()['Output']
+    # return n1/n2
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
