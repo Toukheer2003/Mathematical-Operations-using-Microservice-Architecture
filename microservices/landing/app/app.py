@@ -31,17 +31,17 @@ def divide(n1, n2):
     return response.json()['Output']
     # return n1/n2
     
-def greaterthan(n1, n2):
-    url = "http://greaterthan-service:5056/"+str(n1)+"/"+str(n2)
+def exponent(n1, n2):
+    url = "http://exponent-service:5056/"+str(n1)+"/"+str(n2)
     response = requests.get(url)
     return response.json()['Output']
-    # return n1>n2
+    # return n1**n2
     
-def lesserthan(n1, n2):
-    url = "http://lesserthan-service:5057/"+str(n1)+"/"+str(n2)
+def modulus(n1, n2):
+    url = "http://modulus-service:5057/"+str(n1)+"/"+str(n2)
     response = requests.get(url)
     return response.json()['Output']
-    # return n1<n2
+    # return n1%n2
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
@@ -103,27 +103,30 @@ def index():
             flash(f'The result of operation {operation} on {number_1} and {number_2} is {result}')
        
     
-     elif operation == 'greaterthan':
+    elif operation == 'exponent':
         if((number_1==None or number_2==None)):
-            flash(f'Please enter the numbers properly...')
+            flash(f'Please enter the numbers properly1...')
             
         elif(number_1.isdigit()!=True or number_2.isdigit()!=True):
-            flash(f'Please enter the numbers properly...')
-        
+            flash(f'Please enter the numbers properly2...')
+
         else:
-            result = greaterthan(int(number_1), int(number_2))
+            result = exponent(int(number_1), int(number_2))
             flash(f'The result of operation {operation} on {number_1} and {number_2} is {result}')
         
         
-     elif operation == 'lesserthan':
+    elif operation == 'modulus':
         if((number_1==None or number_2==None)):
             flash(f'Please enter the numbers properly...')
             
         elif(number_1.isdigit()!=True or number_2.isdigit()!=True):
             flash(f'Please enter the numbers properly...')
         
+        elif(number_2=="0"):
+            flash(f'Modulus by Zero is undefined..')
+        
         else:
-            result = lesserthan(int(number_1), int(number_2))
+            result = modulus(int(number_1), int(number_2))
             flash(f'The result of operation {operation} on {number_1} and {number_2} is {result}')
 
     return render_template('index.html')

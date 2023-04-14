@@ -51,25 +51,25 @@ services:
         aliases:
           - division-service
           
-   greaterthan-service:
-    build: ./greaterthan
-    hostname: greaterthan-service
+  exponent-service:
+    build: ./exponent
+    hostname: exponent-service
     ports:
       - 5056:5056
     networks:
       sample:
         aliases:
-          - greaterthan-service
+          - exponent-service
           
-   lesserthan-service:
-    build: ./lesserthan
-    hostname: lesserthan-service
+  lesserthan-service:
+    build: ./modulus
+    hostname: modulus-service
     ports:
       - 5057:5057
     networks:
       sample:
         aliases:
-          - lesserthan-service
+          - modulus-service
 
 networks:
   sample:
