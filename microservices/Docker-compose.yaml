@@ -50,6 +50,26 @@ services:
       sample:
         aliases:
           - division-service
+          
+   greaterthan-service:
+    build: ./greaterthan
+    hostname: greaterthan-service
+    ports:
+      - 5056:5056
+    networks:
+      sample:
+        aliases:
+          - greaterthan-service
+          
+   lesserthan-service:
+    build: ./lesserthan
+    hostname: lesserthan-service
+    ports:
+      - 5057:5057
+    networks:
+      sample:
+        aliases:
+          - lesserthan-service
 
 networks:
   sample:
