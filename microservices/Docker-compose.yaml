@@ -50,6 +50,26 @@ services:
       sample:
         aliases:
           - division-service
+          
+  exponent-service:
+    build: ./exponent
+    hostname: exponent-service
+    ports:
+      - 5056:5056
+    networks:
+      sample:
+        aliases:
+          - exponent-service
+          
+  modulus-service:
+    build: ./modulus
+    hostname: modulus-service
+    ports:
+      - 5057:5057
+    networks:
+      sample:
+        aliases:
+          - modulus-service
 
 networks:
   sample:
