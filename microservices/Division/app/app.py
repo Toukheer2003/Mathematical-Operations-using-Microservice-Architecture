@@ -2,13 +2,12 @@ from flask import Flask
 from flask_restful import Resource,Api
 
 class Division(Resource):
-    def get(self, number_1, number_2):
+    def get(self,number_1,number_2):
         try:
-            res = int(number_1) / int(number_2)
-            return {'Output': res}
-        except ZeroDivisionError:
-            return {'Output': "Error: Division by Zero"}
-        
+            return {'Output':(float(number_1)/float(number_2))}
+        except: 
+            return {'Output': "Division by Zero error"}
+    
 app=Flask(__name__)
 api=Api(app)
 api.add_resource(Division, '/<number_1>/<number_2>')
