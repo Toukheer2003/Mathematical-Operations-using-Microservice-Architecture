@@ -70,6 +70,15 @@ services:
       sample:
         aliases:
           - modulus-service
+  equals-service:
+    build: ./equals
+    hostname: equals-service
+    ports:
+      - 5059:5059
+    networks:
+      sample:
+        aliases:
+          - equals-service          
 
 networks:
   sample:

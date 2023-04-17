@@ -43,6 +43,12 @@ def modulus(n1, n2):
     return response.json()['Output']
     # return n1%n2
 
+def equals(n1, n2):
+    url = "http://equals-service:5059/"+str(n1)+"/"+str(n2)
+    response = requests.get(url)
+    return response.json()['Output']
+    # return n1%n2
+
 @app.route('/', methods=['POST', 'GET'])
 def index():
     number_1 = request.form.get('first')
@@ -128,6 +134,21 @@ def index():
         else:
             result = modulus(int(number_1), int(number_2))
             flash(f'The result of operation {operation} on {number_1} and {number_2} is {result}')
+
+    elif operation == 'equals':
+        if((number_1==None or number_2==None)):
+            flash(f'Please enter the numbers properly...')
+            
+        elif(number_1.isdigit()!=True or number_2.isdigit()!=True):
+            flash(f'Please enter the numbers properly...')
+
+        
+        else:
+            result = equals(int(number_1), int(number_2))
+            if result==True:
+                flash(f'Both  {number_1} and {number_2} are equal')
+            else:    
+                flash(f'Both  {number_1} and {number_2} are not equal')        
 
     return render_template('index.html')
 
