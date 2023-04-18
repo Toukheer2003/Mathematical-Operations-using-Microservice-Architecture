@@ -1,20 +1,3 @@
-
-Conversation opened. 1 unread message.
-
-Skip to content
-Using Gmail with screen readers
-1 of 2,383
-(no subject)
-Inbox
-
-HRISHIKESH BHAT
-Attachments
-9:22 AM (0 minutes ago)
-to me
-
-
- One attachment
-  •  Scanned by Gmail
 from flask import Flask, render_template, request, flash, redirect, url_for
 
 import requests
@@ -29,7 +12,7 @@ def add(n1, n2):
     response = requests.get(url)
     return response.json()['Output']
     # return n1+n2
- 
+
 def minus(n1, n2):
     url = "http://subtraction-service:5053/"+str(n1)+"/"+str(n2)
     response = requests.get(url)
@@ -150,5 +133,3 @@ if __name__ == '__main__':
         port=5051,
         host="0.0.0.0"
     )
-app.py
-Displaying app.py.
