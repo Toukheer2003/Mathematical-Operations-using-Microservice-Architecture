@@ -1,13 +1,13 @@
 from flask import Flask
 from flask_restful import Resource,Api
 
-class Addition(Resource):
+class Subtraction(Resource):
     def get(self,number_1,number_2):
-        return {'Output':(int(number_1)-int(number_2))}
+        return {'Output':(float(number_1)-float(number_2))}
     
 app=Flask(__name__)
 api=Api(app)
-api.add_resource(Addition, '/<number_1>/<number_2>')
+api.add_resource(Subtraction, '/<number_1>/<number_2>')
 
 if __name__ =="__main__":
 	app.run(
