@@ -29,7 +29,7 @@ def add(n1, n2):
     response = requests.get(url)
     return response.json()['Output']
     # return n1+n2
-
+ 
 def minus(n1, n2):
     url = "http://subtraction-service:5053/"+str(n1)+"/"+str(n2)
     response = requests.get(url)
