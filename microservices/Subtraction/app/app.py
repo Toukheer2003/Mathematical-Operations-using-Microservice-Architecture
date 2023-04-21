@@ -8,7 +8,7 @@ class Subtraction(Resource):
 app=Flask(__name__)
 api=Api(app)
 api.add_resource(Subtraction, '/<number_1>/<number_2>')
-
+ 
 if __name__ =="__main__":
 	app.run(
 		debug=True,
