@@ -6,7 +6,7 @@ class Addition(Resource):
         return {'Output':(float(number_1)+float(number_2))}
     
 app=Flask(__name__) 
-api=Api(app)
+api=Api(app) 
 api.add_resource(Addition, '/<number_1>/<number_2>')
 
 if __name__ =="__main__":
