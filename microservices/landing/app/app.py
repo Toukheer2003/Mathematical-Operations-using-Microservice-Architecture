@@ -78,7 +78,6 @@ def index():
             flash(f'The result of operation {operation} on {number_1} and {number_2} is {result}')
 
         except ValueError as e:
-            # flash(e)
             flash(f'Please enter the numbers properly...')
 
 
