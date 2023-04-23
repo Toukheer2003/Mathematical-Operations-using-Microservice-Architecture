@@ -3,7 +3,10 @@ from flask_restful import Resource,Api
 
 class Exponent(Resource): 
 	def get(self, number_1, number_2):
-		return {'Output': (float(number_1) ** float(number_2))}
+		result=float(number_1) ** float(number_2)
+		if isinstance(result, complex):
+			return {'Output': "Complex number"}
+		return {'Output': result}
 
 app = Flask(__name__)
 api = Api(app)
